@@ -10,7 +10,7 @@
 
 // be careful, there is a bug in the iOS simulator, if you open the menu via the sideMenuClicked method, the menu will re-closing itself, this bug is not present in the device.
 
-#define SIDE_MENU_WIDTH 290 // in pixels
+#define SIDE_MENU_WIDTH 270 // in pixels
 
 #define OPEN_ON_RIGHT NO // for changing the side of the menu
 
