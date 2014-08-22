@@ -45,6 +45,7 @@
     globalSV = [[UIScrollView alloc] init];
     [globalSV setDelegate:self];
 //	[globalSV setPagingEnabled:YES];
+	[globalSV setBounces:NO];
 	[globalSV setDecelerationRate:UIScrollViewDecelerationRateFast];
     [globalSV setShowsHorizontalScrollIndicator:NO];
 	if ([globalSV respondsToSelector:@selector(setKeyboardDismissMode:)])
@@ -228,8 +229,8 @@
 
         [self menuInTransitionAtOpeningPercent:(openedPercent < 0 ? 0 : openedPercent)];
 
-        if ((OPEN_ON_RIGHT && scrollView.contentOffset.x < GLOBALSV_MENU_CLOSED_OFFSET.x) || (!OPEN_ON_RIGHT && scrollView.contentOffset.x > GLOBALSV_MENU_CLOSED_OFFSET.x))
-            [scrollView setContentOffset:GLOBALSV_MENU_CLOSED_OFFSET animated:NO];
+//        if ((OPEN_ON_RIGHT && scrollView.contentOffset.x < GLOBALSV_MENU_CLOSED_OFFSET.x) || (!OPEN_ON_RIGHT && scrollView.contentOffset.x > GLOBALSV_MENU_CLOSED_OFFSET.x))
+//            [scrollView setContentOffset:GLOBALSV_MENU_CLOSED_OFFSET animated:NO];
 
         if (scrollView.contentOffset.x == GLOBALSV_MENU_OPENED_OFFSET.x)
         {
