@@ -65,7 +65,7 @@
 
 	[globalSV setFrame:self.view.frame];
 
-    [sideMenuView setFrame:CGRectMake((OPEN_ON_RIGHT ? self.view.frame.size.width - SIDE_MENU_WIDTH : 0), 0, SIDE_MENU_WIDTH, self.view.frame.size.height)];
+    [sideMenuView setFrame:CGRectMake((OPEN_ON_RIGHT ? self.view.frame.size.width - [self getSideMenuWidth] : 0), 0, [self getSideMenuWidth], self.view.frame.size.height)];
 
     [mainView setFrame:CGRectMake((OPEN_ON_RIGHT ? 0 : sideMenuView.frame.size.width), 0, globalSV.frame.size.width, globalSV.frame.size.height)];
 	[dimissSideMenuView setFrame:mainView.bounds];
@@ -156,7 +156,7 @@
 {
 	if (scrollView == globalSV)
 	{
-		float openedPercent = (scrollView.contentOffset.x * 100.0 / SIDE_MENU_WIDTH);
+		float openedPercent = (scrollView.contentOffset.x * 100.0 / [self getSideMenuWidth]);
 
 		if (!OPEN_ON_RIGHT)
 			openedPercent = 100 - openedPercent;
@@ -178,7 +178,7 @@
 {
 	if (scrollView == globalSV && decelerate == NO)
 	{
-		float openedPercent = (scrollView.contentOffset.x * 100.0 / SIDE_MENU_WIDTH);
+		float openedPercent = (scrollView.contentOffset.x * 100.0 / [self getSideMenuWidth]);
 
 		if (!OPEN_ON_RIGHT)
 			openedPercent = 100 - openedPercent;
@@ -200,7 +200,7 @@
 {
 	if (scrollView == globalSV)
 	{
-		float openedPercent = (scrollView.contentOffset.x * 100.0 / SIDE_MENU_WIDTH);
+		float openedPercent = (scrollView.contentOffset.x * 100.0 / [self getSideMenuWidth]);
 
 		if (!OPEN_ON_RIGHT)
 			openedPercent = 100 - openedPercent;
@@ -222,7 +222,7 @@
 {
     if (scrollView == globalSV)
     {
-		float openedPercent = (scrollView.contentOffset.x * 100.0 / SIDE_MENU_WIDTH);
+		float openedPercent = (scrollView.contentOffset.x * 100.0 / [self getSideMenuWidth]);
 
 		if (!OPEN_ON_RIGHT)
 			openedPercent = 100 - openedPercent;
@@ -243,6 +243,11 @@
         if (scrollView.contentOffset.x == GLOBALSV_MENU_CLOSED_OFFSET.x)
             [self menuDidClosing];
     }
+}
+
+- (CGFloat)getSideMenuWidth
+{
+	return DEFAULT_SIDE_MENU_WIDTH;
 }
 
 
