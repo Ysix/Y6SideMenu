@@ -33,8 +33,8 @@
 @property (nonatomic, strong) UIView *sideMenuView; // the side menu view
 
 
-- (void)menuDidClosing; // called when the menu is full closed
-- (void)menuDidOpening; // called when the menu is full opened
+- (void)sidemenuDidClose; // called when the menu is full closed
+- (void)sidemenuDidOpen; // called when the menu is full opened
 - (void)menuInTransitionAtOpeningPercent:(float)percent; // called when the menu is in transition with the opening percent in parameters
 - (void)sideMenuClicked; // call it to close/open the menu via a button or any user action
 
