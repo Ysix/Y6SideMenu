@@ -129,7 +129,7 @@
     }
 }
 
-- (void)sidemenuDidOpen
+- (void)sideMenuDidOpen
 {
 
     if (dimissSideMenuView.hidden)
@@ -140,7 +140,7 @@
 
 }
 
-- (void)sidemenuDidClose
+- (void)sideMenuDidClose
 {
 	[dimissSideMenuView setHidden:YES];
 }
@@ -235,13 +235,13 @@
         if (scrollView.contentOffset.x == GLOBALSV_MENU_OPENED_OFFSET.x)
         {
             [self.view bringSubviewToFront:sideMenuView];
-            [self sidemenuDidClose];
+            [self sideMenuDidClose];
         }
         else
             [self.view sendSubviewToBack:sideMenuView];
 
         if (scrollView.contentOffset.x == GLOBALSV_MENU_CLOSED_OFFSET.x)
-            [self sidemenuDidOpen];
+            [self sideMenuDidOpen];
     }
 }
 
