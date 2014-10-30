@@ -159,7 +159,7 @@
 		if (!OPEN_ON_RIGHT)
 			openedPercent = 100 - openedPercent;
 
-		NSLog(@"endDecelerating : %f", openedPercent);
+//		NSLog(@"endDecelerating : %f", openedPercent);
 
 		if (openedPercent >= 50)
 		{
@@ -181,7 +181,7 @@
 		if (!OPEN_ON_RIGHT)
 			openedPercent = 100 - openedPercent;
 
-		NSLog(@"endDragging : %f, decelerate : %d", openedPercent, decelerate);
+//		NSLog(@"endDragging : %f, decelerate : %d", openedPercent, decelerate);
 
 		if (openedPercent >= 50)
 		{
@@ -203,7 +203,7 @@
 		if (!OPEN_ON_RIGHT)
 			openedPercent = 100 - openedPercent;
 
-		NSLog(@"endScrollingAnimation : %f", openedPercent);
+//		NSLog(@"endScrollingAnimation : %f", openedPercent);
 
 		if (openedPercent >= 50)
 		{
