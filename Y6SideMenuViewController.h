@@ -30,6 +30,7 @@
 
 @property (nonatomic, strong) UIView *sideMenuView; // the side menu view
 
+- (CGFloat)getSideMenuWidth;
 
 - (void)sideMenuDidClose; // called when the menu is full closed
 - (void)sideMenuDidOpen; // called when the menu is full opened

@@ -113,6 +113,11 @@
 	[globalSV setContentOffset:GLOBALSV_MENU_CLOSED_OFFSET];
 }
 
+- (CGFloat)getSideMenuWidth
+{
+	return DEFAULT_SIDE_MENU_WIDTH;
+}
+
 #pragma mark - Menu Opening Methods
 
 - (void)sideMenuClicked
@@ -241,11 +246,6 @@
         if (scrollView.contentOffset.x == GLOBALSV_MENU_CLOSED_OFFSET.x)
             [self sideMenuDidClose];
     }
-}
-
-- (CGFloat)getSideMenuWidth
-{
-	return DEFAULT_SIDE_MENU_WIDTH;
 }
 
 

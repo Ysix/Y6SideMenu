@@ -34,6 +34,7 @@
 		navigationControllerAR = [[NSMutableArray alloc] init];
 		currentSection = -1;
 
+		[self setNavigationBarHidden:YES];
     }
     return self;
 }
