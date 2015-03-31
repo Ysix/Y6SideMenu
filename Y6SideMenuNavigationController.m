@@ -101,6 +101,10 @@
 			}
 			[self popToRootViewControllerAnimated:NO];
 		}
+		else if ([[[[navigationControllerAR objectAtIndex:currentSection] objectForKey:@"viewControllers"] firstObject] respondsToSelector:@selector(sideMenuClicked)])
+		{
+			[(Y6SideMenuViewController *)[[[navigationControllerAR objectAtIndex:currentSection] objectForKey:@"viewControllers"] firstObject] sideMenuClicked];
+		}
 		return;
 	}
 
