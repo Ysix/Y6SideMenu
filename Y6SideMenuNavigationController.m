@@ -34,6 +34,7 @@
 		navigationControllerAR = [[NSMutableArray alloc] init];
 		currentSection = -1;
 
+		[self setNavigationBarHidden:YES];
     }
     return self;
 }
@@ -104,6 +105,10 @@
 				[(Y6SideMenuViewController *)[[[navigationControllerAR objectAtIndex:currentSection] objectForKey:@"viewControllers"] firstObject] setCloseMenuOnAppear:animated];
 			}
 			[self popToRootViewControllerAnimated:NO];
+		}
+		else if ([[[[navigationControllerAR objectAtIndex:currentSection] objectForKey:@"viewControllers"] firstObject] respondsToSelector:@selector(sideMenuClicked)])
+		{
+			[(Y6SideMenuViewController *)[[[navigationControllerAR objectAtIndex:currentSection] objectForKey:@"viewControllers"] firstObject] sideMenuClicked];
 		}
 		return;
 	}
