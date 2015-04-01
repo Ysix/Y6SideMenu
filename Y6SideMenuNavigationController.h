@@ -21,5 +21,6 @@
 - (NSArray *)getSectionInfos;
 
 - (void)goToSectionAtIndex:(int)sectionIndex;
+- (void)goToSectionAtIndex:(int)sectionIndex animated:(BOOL)animated;
 
 @end

@@ -11,9 +11,6 @@
 
 
 @interface Y6SideMenuViewController () <UIScrollViewDelegate>
-{
-	UIView			*dimissSideMenuView;
-}
 
 @end
 
@@ -159,8 +156,6 @@
 		if (!OPEN_ON_RIGHT)
 			openedPercent = 100 - openedPercent;
 
-		NSLog(@"endDecelerating : %f", openedPercent);
-
 		if (openedPercent >= 50)
 		{
 			[globalSV setContentOffset:GLOBALSV_MENU_OPENED_OFFSET animated:YES];
@@ -181,8 +176,6 @@
 		if (!OPEN_ON_RIGHT)
 			openedPercent = 100 - openedPercent;
 
-		NSLog(@"endDragging : %f, decelerate : %d", openedPercent, decelerate);
-
 		if (openedPercent >= 50)
 		{
 			[globalSV setContentOffset:GLOBALSV_MENU_OPENED_OFFSET animated:YES];
@@ -202,8 +195,6 @@
 
 		if (!OPEN_ON_RIGHT)
 			openedPercent = 100 - openedPercent;
-
-		NSLog(@"endScrollingAnimation : %f", openedPercent);
 
 		if (openedPercent >= 50)
 		{
@@ -232,7 +223,7 @@
 
         if (scrollView.contentOffset.x == GLOBALSV_MENU_OPENED_OFFSET.x)
         {
-            [self.view bringSubviewToFront:sideMenuView];
+            [self.view sendSubviewToBack:globalSV];
             [self sideMenuDidOpen];
         }
         else

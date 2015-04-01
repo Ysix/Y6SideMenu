@@ -21,7 +21,9 @@
 {
     UIView          *sideMenuView;
     UIView          *mainView;
-	BOOL            closeMenuOnAppear;
+    UIView			*dimissSideMenuView;
+
+    BOOL            closeMenuOnAppear;
     UIScrollView    *globalSV;
 
 }
