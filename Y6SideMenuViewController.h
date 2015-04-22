@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#define SIDE_MENU_EXIST
+
 #define DEFAULT_SIDE_MENU_WIDTH 270 // in pixels
 
 #define OPEN_ON_RIGHT NO // for changing the side of the menu
