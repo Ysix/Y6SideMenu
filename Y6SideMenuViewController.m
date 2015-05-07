@@ -62,7 +62,12 @@
 
 	[globalSV setFrame:self.view.frame];
 
-    [sideMenuView setFrame:CGRectMake((OPEN_ON_RIGHT ? self.view.frame.size.width - [self getSideMenuWidth] : 0), 0, [self getSideMenuWidth], self.view.frame.size.height)];
+	CGFloat sideMenuOrigin = 0;
+	if ([self respondsToSelector:@selector(prefersStatusBarHidden)] && ![[UIApplication sharedApplication] isStatusBarHidden]) // if iOS >= 7 and statusBar visible
+	{
+		sideMenuOrigin = 20;
+	}
+    [sideMenuView setFrame:CGRectMake((OPEN_ON_RIGHT ? self.view.frame.size.width - [self getSideMenuWidth] : 0), sideMenuOrigin, [self getSideMenuWidth], self.view.frame.size.height - sideMenuOrigin)];
 
     [mainView setFrame:CGRectMake((OPEN_ON_RIGHT ? 0 : sideMenuView.frame.size.width), 0, globalSV.frame.size.width, globalSV.frame.size.height)];
 	[dimissSideMenuView setFrame:mainView.bounds];

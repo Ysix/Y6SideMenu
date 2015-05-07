@@ -29,7 +29,7 @@
     
     if ([self respondsToSelector:@selector(prefersStatusBarHidden)] && ![[UIApplication sharedApplication] isStatusBarHidden]) // if iOS >= 7 and statusBar visible
     {
-        [dimmedView setFrame:CGRectMake(0, 20, mainView.frame.size.width, mainView.frame.size.height - 20)];
+        [dimmedView setFrame:CGRectMake(0, 0, mainView.frame.size.width, mainView.frame.size.height)];
     }
     else
     {

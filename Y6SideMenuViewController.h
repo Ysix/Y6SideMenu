@@ -15,6 +15,7 @@
 #define GLOBALSV_MENU_CLOSED_OFFSET ((OPEN_ON_RIGHT ? CGPointMake(0, 0) : CGPointMake(sideMenuView.frame.size.width, 0)))
 #define GLOBALSV_MENU_OPENED_OFFSET ((OPEN_ON_RIGHT ? CGPointMake(sideMenuView.frame.size.width, 0) : CGPointMake(0, 0)))
 
+
 @interface Y6SideMenuViewController : UIViewController
 {
     UIView          *sideMenuView;
@@ -23,7 +24,6 @@
 
     BOOL            closeMenuOnAppear;
     UIScrollView    *globalSV;
-
 }
 
 @property	(nonatomic) 	BOOL            closeMenuOnAppear; // if set to YES the view controller will be shown with the menu open and will be closing it with an animation, basically set this to YES when the user change the current section in the side menu, this will be re-set to NO on each viewWillAppear 
