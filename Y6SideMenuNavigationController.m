@@ -27,16 +27,17 @@
 
 - (id)init
 {
-    self = [super init];
-    if (self) {
-        // Custom initialization
+	self = [super init];
+	if (self)
+	{
+		// Custom initialization
 
 		navigationControllerAR = [[NSMutableArray alloc] init];
 		currentSection = -1;
 
 		[self setNavigationBarHidden:YES];
-    }
-    return self;
+	}
+	return self;
 }
 
 - (void)addSectionWithViewController:(UIViewController *)rootViewController name:(NSString *)name
@@ -51,7 +52,7 @@
 
 	if (!rootViewController)
 		return;
-	[infosDict setObject:@[rootViewController] forKey:@"viewControllers"];
+	[infosDict setObject:@[ rootViewController ] forKey:@"viewControllers"];
 
 	if (!name)
 		return;
@@ -64,7 +65,7 @@
 
 	if (currentSection == -1)
 	{
-		[self setViewControllers:@[rootViewController]];
+		[self setViewControllers:@[ rootViewController ]];
 		currentSection = 0;
 	}
 }
@@ -91,7 +92,7 @@
 
 - (void)goToSectionAtIndex:(int)sectionIndex
 {
-    [self goToSectionAtIndex:sectionIndex animated:YES];
+	[self goToSectionAtIndex:sectionIndex animated:YES];
 }
 
 - (void)goToSectionAtIndex:(int)sectionIndex animated:(BOOL)animated
@@ -100,15 +101,20 @@
 	{
 		if ([[self viewControllers] count] > 1)
 		{
-			if ([[[[navigationControllerAR objectAtIndex:currentSection] objectForKey:@"viewControllers"] firstObject] respondsToSelector:@selector(setCloseMenuOnAppear:)])
+			if ([[[[navigationControllerAR objectAtIndex:currentSection] objectForKey:@"viewControllers"] firstObject]
+			        respondsToSelector:@selector(setCloseMenuOnAppear:)])
 			{
-				[(Y6SideMenuViewController *)[[[navigationControllerAR objectAtIndex:currentSection] objectForKey:@"viewControllers"] firstObject] setCloseMenuOnAppear:animated];
+				[(Y6SideMenuViewController *)
+				        [[[navigationControllerAR objectAtIndex:currentSection] objectForKey:@"viewControllers"] firstObject]
+				    setCloseMenuOnAppear:animated];
 			}
 			[self popToRootViewControllerAnimated:NO];
 		}
-		else if ([[[[navigationControllerAR objectAtIndex:currentSection] objectForKey:@"viewControllers"] firstObject] respondsToSelector:@selector(sideMenuClicked)])
+		else if ([[[[navigationControllerAR objectAtIndex:currentSection] objectForKey:@"viewControllers"] firstObject]
+		             respondsToSelector:@selector(sideMenuClicked)])
 		{
-			[(Y6SideMenuViewController *)[[[navigationControllerAR objectAtIndex:currentSection] objectForKey:@"viewControllers"] firstObject] sideMenuClicked];
+			[(Y6SideMenuViewController *)[[[navigationControllerAR objectAtIndex:currentSection]
+			    objectForKey:@"viewControllers"] firstObject] sideMenuClicked];
 		}
 		return;
 	}
@@ -116,16 +122,22 @@
 	if (!popToRootOnChange)
 		[[navigationControllerAR objectAtIndex:currentSection] setObject:self.viewControllers forKey:@"viewControllers"];
 
-	if ([[[[navigationControllerAR objectAtIndex:sectionIndex] objectForKey:@"viewControllers"] lastObject] respondsToSelector:@selector(setCloseMenuOnAppear:)])
+	if ([[[[navigationControllerAR objectAtIndex:sectionIndex] objectForKey:@"viewControllers"] lastObject]
+	        respondsToSelector:@selector(setCloseMenuOnAppear:)])
 	{
-		[(Y6SideMenuViewController *)[[[navigationControllerAR objectAtIndex:sectionIndex] objectForKey:@"viewControllers"] lastObject] setCloseMenuOnAppear:animated];
+		[(Y6SideMenuViewController *)[[[navigationControllerAR objectAtIndex:sectionIndex] objectForKey:@"viewControllers"] lastObject]
+		    setCloseMenuOnAppear:animated];
 	}
-    
+
 	[self setViewControllers:[[navigationControllerAR objectAtIndex:sectionIndex] objectForKey:@"viewControllers"]];
-    
+
 	currentSection = sectionIndex;
 }
 
+- (UIViewController *)rootViewControllerForSection:(int)sectionIndex
+{
+	return [[[navigationControllerAR objectAtIndex:sectionIndex] objectForKey:@"viewControllers"] firstObject];
+}
 
 
 @end

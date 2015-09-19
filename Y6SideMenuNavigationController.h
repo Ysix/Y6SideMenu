@@ -22,5 +22,6 @@
 
 - (void)goToSectionAtIndex:(int)sectionIndex;
 - (void)goToSectionAtIndex:(int)sectionIndex animated:(BOOL)animated;
+- (UIViewController *)rootViewControllerForSection:(int)sectionIndex;
 
 @end
